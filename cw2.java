@@ -179,30 +179,39 @@ public class cw2
     }
 } */
 
+/*Zadanie 2.5 */
 import java.util.Scanner;
 
 public class cw2
 {
-    public static void main(String[] args)
-    {
-        int pary = 0;
-        System.out.println("Podaj liczbę n: ");
-        Scanner scan = new Scanner(System.in);
-        int a = scan.nextInt();
-        double[] tab = new double[a];
-        for (int i = 1; i <= a; i++)
+        public static void main(String[] args)
         {
-            Scanner scan2 = new Scanner(System.in);
-            double b = scan2.nextDouble();
-            tab[i] = b;
-            if(tab[i]>0 && tab[i-1]>0)
+            double zm = 0;
+            double pary = 0;
+            System.out.println("Podaj liczbę n: ");
+            Scanner scan = new Scanner(System.in);
+            int a = scan.nextInt();
+            for (int i = 1; i <= a/2; i++)
             {
-                pary++;
+                Scanner scan2 = new Scanner(System.in);
+                double b = scan2.nextDouble();
+                Scanner scan3 = new Scanner(System.in);
+                double c = scan3.nextDouble();
+                if(b>0 && c>0)
+                {
+                    pary++;
+                }
+                if (c>0 && zm>0)
+                {
+                    pary++;
+                }
+                zm = c;
+
             }
+            System.out.println(pary);
         }
-        System.out.println(pary);
-    }
 }
+
 
 
 
