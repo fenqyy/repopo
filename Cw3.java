@@ -219,29 +219,57 @@ public class Cw3
         {
             System.out.println("Podaj poprawna wartosc z zakresu [1:10]");
         }
+        int[][] tab = new int[m][n];
+        generuj(tab,m,n);
+        wypisz(tab);
+        int[][] tab2 = new int[n][k];
+        generuj(tab2,n,k);
+        wypisz(tab2);
+        int[][] tab3 = new int[m][k];
+        mnozenie(tab,tab2,tab3);
+        wypisz(tab3);
 
     }
 
-    public static void generuj(int tab[][], int n, int m, int minWartosc, int maxWartosc)
+    public static void generuj(int tab[][], int n, int m)
     {
         Random r = new Random();
-        for(int i=0; i<n; i++)
+        for(int i=0; i<tab.length; i++)
         {
-            for(int j=0; j<m; j++)
+            for(int j=0; j< tab.length; j++)
             {
-                tab[i][j] = r.nextInt(maxWartosc+1000)+minWartosc;
+                tab[i][j] = r.nextInt(20);
             }
 
         }
     }
 
-    public static void wypisz(int[][] tab)
+    public static void wypisz(int tab[][])
     {
-        for (int el : tab)
+        for (int i = 0; i<tab[0].length; i++)
         {
-            System.out.print(el + " ");
+            for (int j = 0; j<tab.length; j++)
+            {
+                System.out.print(tab[j][i] + ", ");
+            }
+            System.out.println();
         }
-        System.out.println("");
+    }
+
+    public static void mnozenie(int tab1[][], int tab2[][], int tab3[][])
+    {
+        for(int i=0;i<tab1.length;i++)
+        {
+            for(int j=0;j<tab2.length;j++)
+            {
+                int iloczyn =0;
+                for(int k=0; k<tab3.length; k++)
+                {
+                    iloczyn += tab1[i][k] * tab2[k][j];
+                }
+                tab3[i][j] = iloczyn;
+            }
+        }
     }
 
 }
